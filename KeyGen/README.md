@@ -1,4 +1,4 @@
-#說明
+# 說明
 * Class
  * KeyGenerator
 * Method
