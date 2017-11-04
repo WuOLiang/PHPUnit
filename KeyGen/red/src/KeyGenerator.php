@@ -4,28 +4,62 @@
  * Key gen & check
  * 
  * @author Liang <liang@twix.idv.tw>
- * @since 2017/11/04 Liang Create
+ * @since 2017/11/04 Create
  */
 class KeyGenerator{
 
+    
+    /**
+     * @var string self::tokens 序號組成符號
+     */
     const tokens = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
-    private $tokensLen = 0;
-    private $segmentChars = 0;//每段序號的長度
-    private $segmentsLen = 0;//本組序號共有幾段
-    private $keyString = '';//序號
 
-    public function __construct($segmentChars = 8,$segmentsLen = 1)
+    /**
+     * @var int $tokenLen 符號組長度
+     */
+    private $tokensLen = 0;
+    
+    /**
+     * @var int $segmentChars 每段序號的長度
+     */
+    private $segmentChars = 0;
+
+    /**
+     * @var int $segmentsLen 本組序號共有幾段
+     */
+    private $segmentsLen = 0;
+
+    /**
+     * @var string $keyString 序號
+     */
+    private $keyString = '';
+
+    /**
+     * initial
+     */
+    public function __construct()
     {
-        $this->tokensLen = strlen(tokens);
-        $this->segmentChars = $segmentChars;
-        $this->segmentsLen = $segmentsLen;
+        $this->tokensLen = strlen(SELF::tokens)-1;
+        $this->segmentChars = 8;
+        $this->segmentsLen = 1;
     }
 
+    /**
+     * 產生序號。
+     * @author Liang <liang@twix.idv.tw>
+     * @since 2017/11/04 Create
+     */
     public function genKey()
     {
         return $this->keyString;
     }
 
+    /**
+     * checkKey：檢查輸入序號是否符合指定規則
+     * 
+     * @author Liang <liang@twix.idv.tw>
+     * @since 2017/11/04 Create
+     */
     public function checkKey($str)
     {
         $status = fasle;
